@@ -1,11 +1,14 @@
 ﻿// Station 52
 // Linguagem fortemente tipada e é necessário uo uso do ;
 
-using System.Globalization;
+using EstudosCsharp.Exercicio_1;
 
 string texto = "Boas vindas";
 List<string> listaDasBandas = [];
 List<string> ListaTeste = ["A","B","C"];
+
+Exercicio1.NumerosParesFor();
+Exercicio1.NumerosPareForeach();
 
 void ExibirMensagem()
 {
