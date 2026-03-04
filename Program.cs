@@ -5,10 +5,12 @@ using EstudosCsharp.Exercicio_1;
 
 string texto = "Boas vindas";
 List<string> listaDasBandas = [];
-List<string> ListaTeste = ["A","B","C"];
+List<string> ListaTeste = ["A", "B", "C"];
 
-Exercicio1.NumerosParesFor();
-Exercicio1.NumerosPareForeach();
+Dictionary<string, List<int>> Bandas_Notas = new();
+
+// Exercicio1.NumerosParesFor();
+// Exercicio1.NumerosPareForeach();
 
 void ExibirMensagem()
 {
@@ -35,7 +37,7 @@ void ExibirOpcoes()
             ExibirBandas();
             break;
         case 3:
-            Console.Write("Escolheu 3");
+            AvaliarBanda();
             break;
         case -1:
             Console.Write("Saindo....");
@@ -78,7 +80,8 @@ void RegistrarBandas()
     Console.WriteLine("Registro de bandas");
     Console.Write("Digite o nome da banda que você deseja registrar: ");
     string nomeDaBanda = Console.ReadLine()!;
-    listaDasBandas.Add(nomeDaBanda);
+    // listaDasBandas.Add(nomeDaBanda);
+    Bandas_Notas.Add(nomeDaBanda, new List<int>());
     Console.WriteLine($"A banda {nomeDaBanda} foi registrada com sucesso!");
     Thread.Sleep(2000);
     Console.Clear();
@@ -90,7 +93,7 @@ void ExibirBandas()
     Console.Clear();
     Console.WriteLine("Bandas cadastradas: ");
 
-    if (listaDasBandas.Count == 0)
+    if (Bandas_Notas.Count == 0)
     {
         Console.WriteLine("Nenhuma registro de banda encontrado, você pode cadastrar uma no menu!");
         Thread.Sleep(2000);
@@ -103,19 +106,42 @@ void ExibirBandas()
         // {
         //     Console.WriteLine($"{i+1} - {listaDasBandas[i]}");
         // }
-        foreach (string banda in listaDasBandas)
+        foreach (string banda in Bandas_Notas.Keys)
         {
-            Console.WriteLine($"Banda: {banda}"); 
+            Console.WriteLine($"Banda: {banda}");
         }
-        foreach(string letra in ListaTeste)
-        {
-            Console.WriteLine($"{letra}");
-        }
+        // foreach(string letra in ListaTeste)
+        // {
+        //     Console.WriteLine($"{letra}");
+        // }
     }
     Console.WriteLine("Digite qualquer tecla para voltar ao menu....");
     Console.ReadKey();
     Console.Clear();
     ExibirOpcoes();
+}
+
+void AvaliarBanda()
+{
+    Console.Clear();
+    Console.Write("Digite o nome da banda que você deseja avaliar: ");
+    string nomeBanda = Console.ReadLine()!;
+    if (Bandas_Notas.ContainsKey(nomeBanda))
+    {
+        Console.Write("Digite a nota: ");
+        int nota = int.Parse(Console.ReadLine()!);
+        Bandas_Notas[nomeBanda].Add(nota);
+        Console.WriteLine($"A nota da banda {nomeBanda} {nota} foi registrada com sucesso!");
+        Console.Clear();
+        ExibirOpcoes();
+    }
+    else
+    {
+        Console.WriteLine("Banda ainda não registrada, volte ao menu para registrar e avaliar");
+        Thread.Sleep(1000);
+        Console.Clear();
+        ExibirOpcoes();
+    }
 }
 
 ExibirOpcoes();
