@@ -11,6 +11,7 @@ Dictionary<string, List<int>> Bandas_Notas = new();
 
 // Exercicio1.NumerosParesFor();
 // Exercicio1.NumerosPareForeach();
+Exercicio1.RetornaMedia();
 
 void ExibirMensagem()
 {
