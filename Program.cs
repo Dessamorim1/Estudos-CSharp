@@ -2,6 +2,9 @@
 // Linguagem fortemente tipada e é necessário uo uso do ;
 
 using EstudosCsharp.Exercicio_1;
+using EstudosCsharp.Exercicio_2;
+using EstudosCsharp.Exercicio_3;
+using EstudosCsharp.Exercicio_4;
 
 string texto = "Boas vindas";
 List<string> listaDasBandas = [];
@@ -11,7 +14,10 @@ Dictionary<string, List<int>> Bandas_Notas = new();
 
 // Exercicio1.NumerosParesFor();
 // Exercicio1.NumerosPareForeach();
-Exercicio1.RetornaMedia();
+// Exercicio1.RetornaMedia();
+// Exercicio2.Nota_dict();
+// Exercicio3.Estoque_loja();
+Exercicio4.Quiz();
 
 void ExibirMensagem()
 {

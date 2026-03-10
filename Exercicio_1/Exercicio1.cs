@@ -50,6 +50,10 @@ public class Exercicio1
         }}
     };
 
+        List<int> NotaMaria = notasAlunos["Maria"]["Java"];
+        double mediaMaria = NotaMaria.Average();
+        Console.WriteLine(mediaMaria);
+
         // Média da Maria em Python
         List<int> notasPythonMaria = notasAlunos["Maria"]["Python"];
         double mediaMariaEmPython = notasPythonMaria.Average();
