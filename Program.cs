@@ -30,6 +30,7 @@ void ExibirOpcoes()
     Console.WriteLine("\nDigite 1 para registrar uma banda");
     Console.WriteLine("Digite 2 para mostrar todas as bandas");
     Console.WriteLine("Digite 3 para avaliar uma banda");
+    Console.WriteLine("Digite 4 para exibir média de uma banda");
     Console.WriteLine("Digite -1 para sair");
 
     Console.Write("\nDigite sua escolha: ");
@@ -45,6 +46,9 @@ void ExibirOpcoes()
             break;
         case 3:
             AvaliarBanda();
+            break;
+        case 4:
+            ExibirMedia();
             break;
         case -1:
             Console.Write("Saindo....");
@@ -149,6 +153,38 @@ void AvaliarBanda()
         Console.Clear();
         ExibirOpcoes();
     }
+}
+
+void ExibirMedia()
+{
+    Console.Clear();
+    Console.WriteLine("Qual banda você deseja visualizar a média?");
+    string banda = Console.ReadLine()!;
+
+    if (!Bandas_Notas.ContainsKey(banda))
+    {
+        Console.WriteLine("Banda ainda não registrada, volte ao menu para registrar e avaliar");
+        Thread.Sleep(1000);
+        Console.Clear();
+        ExibirOpcoes();
+    }
+    else if (Bandas_Notas[banda].Count == 0)
+    {
+        Console.WriteLine($"A banda que você deseja ver a média ainda não possui nenhuma avaliação");
+        Thread.Sleep(1000);
+        Console.Clear();
+        ExibirOpcoes();
+
+    }
+    else
+    {
+        double media = Bandas_Notas[banda].Average();
+        Console.WriteLine($"A média da {banda} é de {Math.Round(media,2)} no total");
+        Thread.Sleep(2000);
+        Console.Clear();
+        ExibirOpcoes();
+    }
+
 }
 
 ExibirOpcoes();
